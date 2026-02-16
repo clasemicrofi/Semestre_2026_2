@@ -1,0 +1,50 @@
+      	.global main
+      	.text
+
+main:
+		; ######################
+		; Primera seccion
+		; ######################
+		MOVW 	R0, #0x00CB
+		MOVT	R0, #0x0000
+		MOVS	R0, R0
+
+		NOP
+		NOP
+
+		; Primera operacion
+		ADD		R0, R0, #0x31
+
+		NOP
+		NOP
+
+		; Segunda operacion
+		AND		R0, R0, #0xA0
+
+		NOP
+		NOP
+
+		; Tercera operacion
+		ORR		R0, R0, #0x05
+
+		NOP
+		NOP
+
+		MOVW	R1, #0x0200
+		MOVT	R1, #0x2000
+
+		; Guarda
+		STR		R0, [R1]
+		STR		R0, [R1, #0x4]
+		STR		R0, [R1, #0x8]
+		STR		R0, [R1, #0xC]
+
+		; ######################
+		; Segunda seccion
+		; ######################
+fin:
+	    	B		fin
+
+		.end
+
+
